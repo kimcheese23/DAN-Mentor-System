@@ -40,7 +40,7 @@ export const endpoints = {
   mentorFeedbacks: (mentorId) => `/mentorship/mentors/${mentorId}/feedbacks/`,
 
   chatConversations: '/chat/conversations/',
-chatMessages: (id) => `/chat/conversations/${id}/messages/`,
+  chatMessages: (id) => `/chat/conversations/${id}/messages/`,
 };
 
 const api = axios.create({

@@ -14,11 +14,8 @@ export default function FeedbackModal({ show, handleClose, mentorshipId, onSucce
     try {
       await createFeedback(mentorshipId, { rating: Number(rating), comment });
       alert('Gửi đánh giá thành công!');
-      
-      // Reset form sau khi gửi thành công
       setComment('');
       setRating(5);
-      
       handleClose();
       if (onSuccess) onSuccess();
     } catch (err) {

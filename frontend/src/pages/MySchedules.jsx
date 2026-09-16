@@ -5,14 +5,12 @@ import MySpinner from '../components/MySpinner';
 import Pagination from '../components/Pagination';
 import { makeGoogleCalendarLink } from '../utils/calendar';
 
-// Constant ánh ánh trạng thái sang Badge
 const STATUS_BADGES = {
   SCHEDULED: { bg: 'primary', label: 'Đã lên lịch' },
   COMPLETED: { bg: 'success', label: 'Đã hoàn thành' },
   CANCELLED: { bg: 'danger', label: 'Đã hủy' },
 };
 
-// Helper format thời gian gọn gàng
 const formatDateTime = (start, end) => {
   const sDate = new Date(start);
   const eDate = new Date(end);
@@ -59,8 +57,6 @@ export default function MySchedules() {
   return (
     <Container className="py-4">
       <h3 className="fw-bold mb-4">Quản lý lịch hẹn</h3>
-
-      {/* Filter Tabs */}
       <Card className="border-0 shadow-sm mb-4">
         <Card.Body className="p-2">
           <Nav variant="pills" activeKey={status} onSelect={(val) => { setStatus(val); setPage(1); }}>
@@ -72,7 +68,6 @@ export default function MySchedules() {
         </Card.Body>
       </Card>
 
-      {/* Content Section */}
       {loading ? (
         <MySpinner />
       ) : schedules.length === 0 ? (

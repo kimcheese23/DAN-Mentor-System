@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api, { endpoints } from '../services/api';
 
 const AuthContext = createContext();
 
@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
     }
 
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/auth/me/', {
+      const res = await api.get(endpoints.me, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUser(res.data);
